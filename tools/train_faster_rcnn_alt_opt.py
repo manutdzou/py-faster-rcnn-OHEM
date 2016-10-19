@@ -181,6 +181,8 @@ def train_fast_rcnn(queue=None, imdb_name=None, init_model=None, solver=None,
     cfg.TRAIN.BG_THRESH_LO = 0.0
     cfg.ASPECT_GROUPING = False
     cfg.TRAIN.OHEM_USE_NMS = False
+    if cfg.TRAIN.OHEM_USE_NMS:
+        cfg.TRAIN.OHEM_NMS_THRESH = 0.3
     
     cfg.TRAIN.HAS_RPN = False           # not generating prosals on-the-fly
     cfg.TRAIN.PROPOSAL_METHOD = 'rpn'   # use pre-computed RPN proposals instead
